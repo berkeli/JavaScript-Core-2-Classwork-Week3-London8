@@ -4,10 +4,15 @@
  * Module: HTML/CSS
  */
 
+
+
 html,
 body {
   font-family: "Source Sans Pro", -apple-system, system-ui, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.red {
+  background-color: #ce5f31;
 }
 
 .site-footer {

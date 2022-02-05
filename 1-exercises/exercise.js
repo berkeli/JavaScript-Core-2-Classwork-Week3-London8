@@ -22,7 +22,10 @@ Write JavaScript below that console.logs:
     --> should log a list of nodes with a length of 3
 
 */
-
+console.log(document.getElementsByTagName('p'));
+console.log(document.getElementsByTagName('div')[0]);
+console.log(document.getElementById('jumbotronText'));
+console.log(document.getElementsByClassName('primary-content')[0].getElementsByTagName('p'))
 
 /*
 Task 2
@@ -30,8 +33,9 @@ Task 2
 
 When a user clicks the 'ALERT' button, an alert box should pop up with the text "Thanks for visiting Bikes for Refugees!"
 */
-
-
+document.getElementById('alertBtn').addEventListener('click', ()=> {
+  alert("Thanks for visiting Bikes for Refugees!");
+})
 /*
 Task 3
 =======
@@ -39,7 +43,9 @@ Task 3
 When a user clicks the 'Change colour' button, the background colour of the page should change to red.
 Hint: can you do this with a CSS class instead of adding styles to the element?
 */
-
+document.getElementById('bgrChangeBtn').addEventListener('click', ()=> {
+  document.getElementById('body').classList.toggle('red');
+})
 
 /*
 Task 4
@@ -47,7 +53,14 @@ Task 4
 
 When a user clicks the 'Larger links!' button, the text of all links on the page should increase.
 */
-
+let fontSize = 1;
+document.getElementById('largerLinksBtn').addEventListener('click', ()=> {
+  const links = document.getElementsByTagName('a'); 
+  for (let i = 0; i < links.length; i++) {
+    links[i].style.fontSize = `${fontSize}rem`; 
+  }
+  fontSize+= 0.1;
+})
 
 /*
 Task 5
@@ -56,3 +69,7 @@ Task 5
 When a user clicks the 'Add some text' button, the text in the input field should be appended to the page as a new paragraph below it.
 Hint: the new paragraph should be appended to the element with id 'addArticle'.
 */
+document.getElementById('addArticleBtn').addEventListener('click', () => {
+  const newText = document.getElementById('addArticleInput').value;
+  document.getElementById('mainArticles').insertAdjacentHTML('beforeend', `<article class="article"><p class="article-lead">${newText}</p></article>`);  
+})
